@@ -1,0 +1,25 @@
+{
+  "name": "async-autotarget",
+  "version": "0.0.0",
+  "description": "Take an object of named functions (like for an async auto workflow, why else) and return an object containing only a specific subtree",
+  "main": "index.js",
+  "dependencies": {
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {
+    "tape": "~2.3.2"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:robert-chiniquy/async-autotarget.git"
+  },
+  "keywords": [
+    "async"
+  ],
+  "author": "Robert Chiniquy",
+  "license": "BSD",
+  "readmeFilename": "README"
+}

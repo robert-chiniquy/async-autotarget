@@ -1,0 +1,1 @@
+Take an object of named functions (like for an async auto workflow, why else) and return an object containing only the subtree under a given name.
