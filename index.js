@@ -7,12 +7,13 @@ function deps(v) {
   return [];
 }
 
-module.exports = function(whole, target) {
-  if (!whole[target]) {
-    throw new Error('No such target');
-  }
 
-  var part = {}, needed = [target], k;
+module.exports = function(whole, targets) {
+  var part = {}, needed = _.isArray(targets) ? targets : [targets], k;
+
+  if (!_.every(needed, function(t) { return _.contains(_.keys(whole), t); })) {
+    throw new Error('Not all targets are present: ' + needed.join(' '));
+  }
 
   while (needed.length) {
     k = needed.pop();

@@ -47,3 +47,21 @@ test("usual case, some in, some out", function(t) {
   t.end();
 });
 
+test("multiple targets", function(t) {
+  var
+    o = {
+      'a': function() {},
+      'b': ['a', function() {}],
+      'c': ['b', function() {}],
+      'd': function() {}
+    },
+    e = {
+      'a': o.a,
+      'b': o.b,
+      'd': o.d
+    },
+    r = autotarget(o, ['b', 'd']);
+
+  t.deepEqual(e, r);
+  t.end();
+});
