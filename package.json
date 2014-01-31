@@ -1,6 +1,6 @@
 {
   "name": "async-autotarget",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Take an object of named functions (like for an async auto workflow, why else) and return an object containing only a specific subtree",
   "main": "index.js",
   "dependencies": {
