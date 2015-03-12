@@ -1,6 +1,6 @@
 {
   "name": "async-autotarget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Select a specific subtree of required functions from an input object appropriate for async.auto()",
   "main": "index.js",
   "dependencies": {
