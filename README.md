@@ -1,7 +1,7 @@
 async-autotarget
 ================
 
-Select a specific subtree (or union of subtrees) of required functions from an input object appropriate for async.auto() [1]. The goal is to simplify writing async workflows with async.auto.
+Select a specific subtree (or union of subtrees) of required functions from an input object appropriate for async.auto(). The goal is to simplify writing async workflows with async.auto, replacing cases where otherwise code will conditionally mutate the input object or functions will check their preconditions before executing.
 
 1. https://github.com/caolan/async#auto
 
@@ -11,10 +11,11 @@ Select a specific subtree (or union of subtrees) of required functions from an i
 var async = require('async');
 var autotarget = require('async-autotarget');
 
-// assume you have a bunch of functions which do IO to get you cool stuff, and some depend on the results of others
+// assume you have a bunch of functions which do IO to get you cool stuff,
+// and some functions depend on the results of others
 var everything = {
   'vase': getVase,
-  'roses': [vase, getRoses],
+  'roses': ['vase', getRoses],
   'candles': ['roses', getCandles],
   'oysters': getOysters,
   'dessert': getDessert,
@@ -36,7 +37,7 @@ function lovelyEvening(callback) {
 
 // Sometime you really just want the movie and the popcorn, nothing wrong with that
 function movieNight(callback) {
-  // popcorn requires a movie in `everything`, so just need to select 'popcorn' here
+  // 'popcorn' requires 'movie' in `everything`, so just need to select 'popcorn' here
   async.auto(autotarget(everything, 'popcorn'), callback);
 }
 
