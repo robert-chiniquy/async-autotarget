@@ -35,7 +35,7 @@ function lovelyEvening(callback) {
   });
 }
 
-// Sometime you really just want the movie and the popcorn, nothing wrong with that
+// Sometimes you really just want the movie and the popcorn, nothing wrong with that
 function movieNight(callback) {
   // 'popcorn' requires 'movie' in `everything`, so just need to select 'popcorn' here
   async.auto(autotarget(everything, 'popcorn'), callback);
