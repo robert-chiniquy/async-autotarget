@@ -65,3 +65,18 @@ test("multiple targets", function(t) {
   t.deepEqual(e, r);
   t.end();
 });
+
+test("throw an error when not all targets are present in the object", function(t) {
+  var
+    o = {
+      'a': function() {},
+      'b': ['a', function() {}],
+      'c': ['b', function() {}]
+    };
+
+  t.throws(function() {
+    autotarget(o, ['b', 'd']);
+  });
+
+  t.end();
+});

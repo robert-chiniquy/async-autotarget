@@ -9,14 +9,18 @@ function deps(v) {
 
 
 module.exports = function(whole, targets) {
-  var part = {}, needed = _.isArray(targets) ? targets : [targets], k;
+  var
+    needed = _.isArray(targets) ? targets : [targets],
+    present = _.keys(whole),
+    missing = _.difference(needed, present),
+    part = {},
+    k;
 
-  if (!_.every(needed, function(t) { return _.contains(_.keys(whole), t); })) {
-    throw new Error('Not all targets are present: ' + needed.join(' '));
+  if (missing.length > 0) {
+    throw new Error('Missing targets: ' + missing.join(' '));
   }
 
-  while (needed.length) {
-    k = needed.pop();
+  while (k = needed.pop()) {
     part[k] = whole[k];
     needed = needed.concat(deps(whole[k]).filter(function(k) { return !part[k]; }));
   }
