@@ -1,7 +1,7 @@
 async-autotarget
 ================
 
-Select a specific subtree (or union of subtrees) of required functions from an input object appropriate for async.auto(). The goal is to simplify writing async workflows with `async.auto`, replacing cases where otherwise code will conditionally mutate the input object or functions will check their preconditions before executing.
+Select a specific subtree (or union of subtrees) of required functions from an input object appropriate for `async.auto()`. The goal is to simplify writing async workflows with `async.auto`, replacing cases where otherwise code will conditionally mutate the input object or functions will check their preconditions before executing.
 
 1. https://github.com/caolan/async#auto
 
