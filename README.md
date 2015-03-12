@@ -41,7 +41,7 @@ function movieNight(callback) {
   async.auto(autotarget(everything, 'popcorn'), callback);
 }
 
-// You can pass an array to get the union of two subtrees also (this lets you get dessert too)
+// You can pass an array to get the union of two or more subtrees (this lets you get dessert too)
 function movieNightWithDessert(callback) {
   async.auto(autotarget(everything, ['popcorn', 'dessert']), callback);
 }
